@@ -1,0 +1,23 @@
+{
+  "name": "360clinic",
+  "version": "0.0.1",
+  "description": "backend of doctor appointment and booking system",
+  "license": "ISC",
+  "author": "salil mandal",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.12.1",
+    "nodemon": "^3.1.7",
+    "zod": "^3.23.8"
+  }
+}
