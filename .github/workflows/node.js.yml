@@ -26,9 +26,6 @@ jobs:
 
     - name: Install dependencies
       run: npm ci
-
-    - name: Build source code
-      run: npm run start
-
+      
     - name: Run tests
       run: npm test
