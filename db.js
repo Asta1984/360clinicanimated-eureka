@@ -76,12 +76,9 @@ const doctorSchema = new Schema({
     }
 }, { 
     timestamps: true,
-    // Remove any additional index configurations
 });
 
-// Add specific indexes
-doctorSchema.index({ email: 1 });
-doctorSchema.index({ specialty: 1, 'location.city': 1, 'location.state': 1 });
+
 
 // Patient Schema
 const patientSchema = new Schema({
@@ -126,8 +123,7 @@ const patientSchema = new Schema({
     }
 }, { timestamps: true });
 
-// Add specific indexes
-patientSchema.index({ email: 1 });
+
 
 // Appointment Schema
 const appointmentSchema = new Schema({
@@ -176,9 +172,6 @@ const appointmentSchema = new Schema({
     optimisticConcurrency: true 
 });
 
-// Add specific indexes
-appointmentSchema.index({ doctorId: 1, date: 1, status: 1 });
-appointmentSchema.index({ patientId: 1, date: 1, status: 1 });
 
 // Model Creation
 const DoctorModel = mongoose.model("Doctor", doctorSchema);
