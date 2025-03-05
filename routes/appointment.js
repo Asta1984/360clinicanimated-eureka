@@ -21,12 +21,16 @@ const transporter = nodemailer.createTransport({
 // Appointment Booking Validation Schema
 const appointmentBookingSchema = z.object({
     doctorId: z.string(),
-    date: z.date(),
+    date: z.preprocess((arg) => {
+      if (typeof arg === 'string' || arg instanceof Date) {
+        return new Date(arg);
+      }
+    }, z.date()),
     startTime: z.string(),
     endTime: z.string(),
     consultationLocation: z.string()
-});
-
+  });
+  
 // Helper function to send email
 const sendAppointmentEmail = async (patient, doctor, appointment, type) => {
     try {
