@@ -13,7 +13,7 @@ const patientSignupSchema = z.object({
     password: z.string().min(8).max(16),
     firstName: z.string().min(2).max(50),
     lastName: z.string().min(2).max(50),
-    dateOfBirth: z.date().optional(),
+    dateOfBirth: z.coerce.date().optional(),
     contactNumber: z.string().optional()
 });
 
