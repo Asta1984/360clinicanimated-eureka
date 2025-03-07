@@ -139,6 +139,22 @@ patientRouter.get('/search-doctors', async (req, res) => {
     }
 });
 
+// Get Patient Profile 
+patientRouter.get('/profile', patientMiddleware, async (req, res) => {
+    try {
+        const patient = await PatientModel.findById(req.patientId).select('-password');
+        if (!patient) {
+            return res.status(404).json({ message: "Patient not found" });
+        }
+        res.json(patient);
+    } catch (error) {
+        res.status(500).json({
+            message: "Failed to fetch profile",
+            error: error.message
+        });
+    }
+});
+
 module.exports = {
     patientRouter
 };
